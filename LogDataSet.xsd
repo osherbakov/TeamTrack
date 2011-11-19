@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="LogDataSet" targetNamespace="http://tempuri.org/LogDataSet.xsd" xmlns:mstns="http://tempuri.org/LogDataSet.xsd" xmlns="http://tempuri.org/LogDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HistoryDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HistoryDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TeamTrack.Properties.Settings.GlobalReference.Default.HistoryDBConnectionString" Provider="System.Data.SQLite" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LogDataTableAdapter" GeneratorDataComponentClassName="LogDataTableAdapter" Name="LogData" UserDataComponentName="LogDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HistoryDBConnectionString (Settings)" DbObjectName="main.History" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillLog" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetDataLog" GeneratorSourceName="FillLog" GetMethodModifier="Public" GetMethodName="GetDataLog" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataLog" UserSourceName="FillLog">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT CID, Name, LogEntry, [Time] FROM History WHERE (LogEntry IS NOT NULL) ORDER BY [Time]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CID" DataSetColumn="CID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="LogEntry" DataSetColumn="LogEntry" />
+              <Mapping SourceColumn="Time" DataSetColumn="Time" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="HistoryDBConnectionString (Settings)" DbObjectName="main.History" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillNames" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetNames" GeneratorSourceName="FillNames" GetMethodModifier="Public" GetMethodName="GetNames" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetNames" UserSourceName="FillNames">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Name, CID, LogEntry, [Time]
+FROM            History
+GROUP BY Name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="LogDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="LogDataSet" msprop:Generator_DataSetName="LogDataSet" msprop:EnableTableAdapterManager="True">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LogData" msprop:Generator_UserTableName="LogData" msprop:Generator_RowDeletedName="LogDataRowDeleted" msprop:Generator_RowChangedName="LogDataRowChanged" msprop:Generator_RowClassName="LogDataRow" msprop:Generator_RowChangingName="LogDataRowChanging" msprop:Generator_RowEvArgName="LogDataRowChangeEvent" msprop:Generator_RowEvHandlerName="LogDataRowChangeEventHandler" msprop:Generator_TableClassName="LogDataDataTable" msprop:Generator_TableVarName="tableLogData" msprop:Generator_RowDeletingName="LogDataRowDeleting" msprop:Generator_TablePropName="LogData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CID" msprop:Generator_UserColumnName="CID" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="CID" msprop:Generator_ColumnPropNameInTable="CIDColumn" msprop:Generator_ColumnVarNameInTable="columnCID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LogEntry" msprop:Generator_UserColumnName="LogEntry" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="LogEntry" msprop:Generator_ColumnPropNameInTable="LogEntryColumn" msprop:Generator_ColumnVarNameInTable="columnLogEntry" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time" msprop:Generator_UserColumnName="Time" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInTable="TimeColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

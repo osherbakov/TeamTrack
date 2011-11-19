@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TeamTrack.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HistoryDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;data source=C:\TeamTrackData.s3db&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SQLite&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">data source=C:\TeamTrackData.s3db</Value>
+    </Setting>
+    <Setting Name="ComPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+    <Setting Name="PollingInterval" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="TeamDelayed" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="TrackingPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9999</Value>
+    </Setting>
+    <Setting Name="HistoryPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9998</Value>
+    </Setting>
+    <Setting Name="BufferTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="SkipTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="CaptureThreshold" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="CaptureDevice" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Mic</Value>
+    </Setting>
+    <Setting Name="AudioDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

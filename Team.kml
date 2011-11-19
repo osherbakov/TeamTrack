@@ -1,0 +1,162 @@
+<kml xmlns="http://www.opengis.net/kml/2.2"> 
+<Document>   
+  <name>Blue Force Tracking</name>   
+  <open>1</open>    
+
+  <Style id="team-tracking-template">     
+    <BalloonStyle>       
+      <text>
+        <![CDATA[         
+          <h1> Team Status</h1>                <br/>
+		  <b>        $[TeamStatus/TeamName]  </b> <br/> 
+				  $[TeamStatus/Description] 
+          $[TeamStatus/Members] <br/>        
+          MGRS: $[TeamStatus/MGRS] <br/>        
+          Geo: $[TeamStatus/LatLon] <br/>        
+          Speed:     $[TeamStatus/Speed] km/h <br/>        
+          Direction: $[TeamStatus/Dir]   <br/>        
+          Last Time: $[TeamStatus/Time]   <br/>        
+        ]]>
+      </text>     
+    </BalloonStyle>
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+  <Style id="team-delayed-template">
+    <BalloonStyle>
+      <text>
+        <![CDATA[         
+          <h1> Team Status (Delayed)</h1>                <br/>
+		  <b>        $[TeamStatus/TeamName]  </b> <br/> 
+					 $[TeamStatus/Members] <br/>        
+          MGRS: $[TeamStatus/MGRS] <br/>        
+          Geo: $[TeamStatus/LatLon] <br/>        
+          Speed:     $[TeamStatus/Speed] km/h <br/>        
+          Direction: $[TeamStatus/Dir]   <br/>        
+          Last Time: $[TeamStatus/Time]   <br/>        
+        ]]>
+      </text>
+    </BalloonStyle>
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+  <Style id="place-status-template">     
+    <BalloonStyle>       
+      <text>
+        <![CDATA[         
+          <h1> $[TeamStatus/TeamName]  </h1>                <br/>
+				$[TeamStatus/Description] 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br/> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <br/> 
+          MGRS: $[TeamStatus/MGRS] <br/>        
+          Geo: $[TeamStatus/LatLon] <br/>        
+          Speed:     $[TeamStatus/Speed] km/h <br/>        
+          Direction: $[TeamStatus/Dir]   <br/>        
+          Last Time: $[TeamStatus/Time]   <br/>        
+        ]]>
+      </text>     
+    </BalloonStyle>
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>     
+
+  <Style id="team-icon">
+    <IconStyle>
+	  <Icon>
+	    <href>http://maps.google.com/mapfiles/ms/icons/hiker.png</href>
+	  </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+  <Style id="tracking-icon">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/green-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+  <Style id="delayed-icon">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/red-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+  <Style id="places-icon">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.google.com/mapfiles/ms/icons/yellow-dot.png</href>
+      </Icon>
+      <hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+    </IconStyle>
+  </Style>
+
+
+  <Style id="check-hide-children">
+    <ListStyle>
+	  <listItemType>checkHideChildren</listItemType>
+    </ListStyle>
+  </Style>
+
+  <Style id="projected-line">
+	<LineStyle>
+	  <!-- inherited from ColorStyle -->
+	  <color>7f00ff00</color>            <!-- kml:color -->
+	  <!-- specific to LineStyle -->
+	  <width>4</width>                   <!-- float -->
+	</LineStyle>  
+  </Style>
+
+  
+  <!-- Declare the type "TeamStatus" with 6 fields -->
+  <Schema name="TeamStatus" id="TeamStatusId">     
+    <SimpleField type="string" name="TeamName">       
+      <displayName><![CDATA[<b>Team Name</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="Description">       
+      <displayName><![CDATA[<b>Description</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="Members">       
+      <displayName><![CDATA[<b>Team Members</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="MGRS">       
+      <displayName><![CDATA[<b>MGRS Coordinates</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="LatLon">       
+      <displayName><![CDATA[<b>Lat Lon Coordinates</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="int" name="Speed">       
+      <displayName><![CDATA[<b>Team Speed</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="Dir">       
+      <displayName><![CDATA[<b>Direction of Travel</b>]]></displayName>     
+    </SimpleField>     
+    <SimpleField type="string" name="Time">       
+      <displayName><![CDATA[<b>Last Time to check in</b>]]></displayName>     
+    </SimpleField>     
+  </Schema>       
+
+
+<!-- INSERT_PLACEMARKS -->
+  
+</Document> 
+</kml>
