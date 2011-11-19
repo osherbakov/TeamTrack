@@ -6,6 +6,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MGRS_Lib", "..\MGRS_Lib\MGRS_Lib.vcproj", "{978D3E1C-D188-4581-9B18-FCD89662E766}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istrib.Sound", "SoundCapture\Istrib.Sound\Istrib.Sound.csproj", "{C7A09BB1-B85C-4993-8BFE-3974730BF9FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{978D3E1C-D188-4581-9B18-FCD89662E766} = {978D3E1C-D188-4581-9B18-FCD89662E766}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Istrib.Sound.Mp3", "SoundCapture\Istrib.Sound.Mp3\Istrib.Sound.Mp3.csproj", "{B8121AF1-89F4-4E8D-AC38-AF314D6276AB}"
 EndProject
